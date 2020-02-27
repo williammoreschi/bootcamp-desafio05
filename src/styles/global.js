@@ -14,7 +14,7 @@ html, body, #root{
 }
 
 body{
-  background-color: #715951;
+  background-color: #7159c1;
   -webkit-font-smoothig: antialiased !important;
 }
 
