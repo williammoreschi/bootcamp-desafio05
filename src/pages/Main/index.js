@@ -12,6 +12,21 @@ export default class Main extends Component {
     loading: false,
   };
 
+  componentDidMount() {
+    const respositoriesLocalStorage = localStorage.getItem('respositories');
+
+    if (respositoriesLocalStorage) {
+      this.setState({ respositories: JSON.parse(respositoriesLocalStorage) });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { respositories } = this.state;
+    if (prevState.respositories !== respositories) {
+      localStorage.setItem('respositories', JSON.stringify(respositories));
+    }
+  }
+
   handleInputChange = e => {
     this.setState({ newRepo: e.target.value });
   };
@@ -62,7 +77,7 @@ export default class Main extends Component {
           {respositories.map(respositorie => (
             <li key={respositorie.name}>
               <span>{respositorie.name}</span>
-              <a href="">Detalhes</a>
+              <a href={respositorie.name}>Detalhes</a>
             </li>
           ))}
         </List>
