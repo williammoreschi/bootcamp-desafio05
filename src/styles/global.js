@@ -24,6 +24,14 @@ body,input, button{
   font-family: Arial, Helvetica, sans-serif;
 }
 
+ul,ol{
+  list-style:none
+}
+
+a{
+  text-decoration:none
+}
+
 button{
   cursor:pointer;
 }

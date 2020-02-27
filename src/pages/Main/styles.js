@@ -12,10 +12,9 @@ export const Container = styled.div`
     font-size: 1.6rem;
     display: flex;
     align-items: center;
-  }
-
-  h1 svg {
-    margin-right: 10px;
+    svg {
+      margin-right: 10px;
+    }
   }
 `;
 export const Form = styled.form`
@@ -66,4 +65,23 @@ export const SubmitButton = styled.button.attrs(props => ({
     animation ${rotate} 2s linear infinite;
   }
   `}
+`;
+
+export const List = styled.ul`
+  margin-top: 30px;
+
+  li {
+    padding: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & + li {
+      border-top: 1px solid #eee;
+    }
+
+    a {
+      color: #7159c1;
+    }
+  }
 `;
