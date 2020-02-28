@@ -15,7 +15,7 @@ A aplicação consome dados da a API oficial do Github para buscar repositórios
 
 ### Resultado
 <h1 align="center">
-  <img src="https://user-images.githubusercontent.com/2512512/75504783-2fdba600-59b8-11ea-9101-14325c5e5f45.png" width="745px" />
+  <img src="https://user-images.githubusercontent.com/2512512/75547401-8cb37c80-5a09-11ea-8888-c0e8f7f2474e.png" width="745px" />
 </h1>
 
 <h1 align="center">
