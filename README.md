@@ -15,11 +15,11 @@ A aplicação consumi dados da a API oficial do Github para buscar repositórios
 
 ### Resultado
 <h1 align="center">
-  <img src="[.github/repo_list.png](https://user-images.githubusercontent.com/2512512/75504783-2fdba600-59b8-11ea-9101-14325c5e5f45.png)" width="745px" />
+  <img src="https://user-images.githubusercontent.com/2512512/75504783-2fdba600-59b8-11ea-9101-14325c5e5f45.png" width="745px" />
 </h1>
 
 <h1 align="center">
-  <img src="[[.github/repo_details.png]()](https://user-images.githubusercontent.com/2512512/75504817-43870c80-59b8-11ea-8d99-e89b9e3b9585.png)" width="745px" />
+  <img src="https://user-images.githubusercontent.com/2512512/75504817-43870c80-59b8-11ea-8d99-e89b9e3b9585.png" width="745px" />
 </h1>
 
 ### Instruções
