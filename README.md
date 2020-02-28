@@ -11,7 +11,7 @@
 
 ## Resumo
 Foi desenvolvido uma aplicação que permite cadastrar e consultar repositórios do Github.
-A aplicação consumi dados da a API oficial do Github para buscar repositórios e suas Issues.
+A aplicação consome dados da a API oficial do Github para buscar repositórios e suas Issues.
 
 ### Resultado
 <h1 align="center">
