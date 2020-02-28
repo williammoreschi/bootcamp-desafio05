@@ -3,14 +3,34 @@ import styled, { keyframes, css } from 'styled-components';
 export const Form = styled.form`
   margin-top: 15px;
   display: flex;
+  flex-direction:column;
 
-  input {
-    flex: 1;
-    border: 1px solid #eee;
-    padding: 10px 15px;
-    border-radius: 5px;
-    font-size: 1.2rem;
+  .group{
+    display:flex;
+    flex:1;
+    
+    input {
+      flex: 1;
+      border: 1px solid #eee;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-size: 1.2rem;
+
+      &.error{
+        border-color: #ff6e6e;
+      }
+
+    }
+  
   }
+  
+  span.error{
+    font-size: 0.8em;
+    font-weight: bold;
+    margin-top: 2px;
+    color: #F44336;
+  }
+
 `;
 
 const rotate = keyframes`
@@ -25,7 +45,7 @@ const rotate = keyframes`
 
 export const SubmitButton = styled.button.attrs(props => ({
   type: 'submit',
-  disabled: props.loading,
+  disabled: props.load,
 }))`
   background-color: #7159c1;
   border: none;
@@ -42,7 +62,7 @@ export const SubmitButton = styled.button.attrs(props => ({
   }
 
   ${props =>
-    props.loading &&
+    props.load &&
     css`
   svg {
     animation ${rotate} 2s linear infinite;

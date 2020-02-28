@@ -11,11 +11,13 @@ export default class Main extends Component {
     newRepo: '',
     respositories: [],
     loading: false,
+    error:false,
+    messageError:'',
   };
 
   componentDidMount() {
     const respositoriesLocalStorage = localStorage.getItem('respositories');
-
+    
     if (respositoriesLocalStorage) {
       this.setState({ respositories: JSON.parse(respositoriesLocalStorage) });
     }
@@ -29,50 +31,74 @@ export default class Main extends Component {
   }
 
   handleInputChange = e => {
-    this.setState({ newRepo: e.target.value });
+    this.setState({ newRepo: e.target.value, error:false, messageError:'' });
   };
 
   handleSubmit = async e => {
     e.preventDefault();
 
-    this.setState({ loading: true });
+    this.setState({ loading: true, error:false, messageError: '' });
 
-    const { newRepo, respositories } = this.state;
+    
+    try {
+      const { newRepo, respositories } = this.state;
+      
+      if(newRepo === ''){
+        throw new Error('Precisa indicar um repositório');
+      }
+      
+      const duplicate = respositories.find(r => r.name.toLocaleLowerCase() === newRepo.toLocaleLowerCase());
+      
+      if(duplicate){
+        throw new Error('Repositório Duplicado');
+      }
 
-    const response = await api.get(`/repos/${newRepo}`);
+      const response = await api.get(`/repos/${newRepo}`); 
+      
+      const data = {
+        name: response.data.full_name,
+      };
+      
+      this.setState({
+        respositories: [...respositories,data],
+        newRepo: '',
+        loading: false,
+      });
 
-    const data = {
-      name: response.data.full_name,
-    };
-    this.setState({
-      respositories: [...respositories, data],
-      newRepo: '',
-      loading: false,
-    });
+    } catch (e) {
+      this.setState({error:true,messageError:`Erro: ${e.message}`});
+    } finally{
+      this.setState({loading: false});
+    }
   };
 
   render() {
-    const { newRepo, loading, respositories } = this.state;
+    const { newRepo, loading, respositories, error, messageError } = this.state;
+    
     return (
       <Container>
         <h1>
           <FaGithubAlt />
           Repositório
         </h1>
-        <Form onSubmit={this.handleSubmit}>
+        <Form onSubmit={this.handleSubmit} >
+          <div className='group'>
           <input
             type="text"
             placeholder="Adicionar repositório"
             value={newRepo}
             onChange={this.handleInputChange}
-          />
-          <SubmitButton loading={loading}>
+            className={error ? 'error' : ''}
+            />
+          <SubmitButton load={loading}>
             {loading ? (
               <FaSpinner color="#fff" size="14" />
-            ) : (
-              <FaPlus color="#fff" size="14" />
-            )}
+              ) : (
+                <FaPlus color="#fff" size="14" />
+                )}
           </SubmitButton>
+          </div>
+          <span className='error'>{messageError}</span>
         </Form>
         <List>
           {respositories.map(repository => (
