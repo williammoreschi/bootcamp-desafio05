@@ -173,6 +173,7 @@ class Repository extends Component {
             title="Próximo"
             type="button"
             onClick={() => this.handlePageAction('next')}
+            disabled={issues.length === 0}
           >
             <FaArrowRight />
           </button>
