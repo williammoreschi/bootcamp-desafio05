@@ -64,7 +64,7 @@ class Repository extends Component {
 
   handleFilter = async active => {
     const { filters } = this.state;
-    this.setState({
+    await this.setState({
       filterIndex: active,
       page: 1,
       filters: filters.map((filter, index) => {
