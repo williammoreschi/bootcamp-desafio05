@@ -45,6 +45,18 @@ export const IssuesList = styled.ul`
   padding-top: 30px;
   margin-top: 30px;
   border-top: 1px solid #eee;
+  position: relative;
+  &.loadingList:before {
+    content: '';
+    top: 0;
+    left: 0;
+    position: absolute;
+    display: flex;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
 
   li {
     display: flex;
@@ -93,6 +105,55 @@ export const IssuesList = styled.ul`
     p {
       font-size: 0.8rem;
       color: #333;
+    }
+  }
+`;
+
+export const IssueFilter = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  max-width: 90%;
+  margin: 15px auto 0;
+
+  button {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    color: #7159c1;
+    border: 1px solid #7159c1;
+    padding: 5px 15px;
+    cursor: pointer;
+    transition: all 500ms ease-in-out;
+    background-color: #fff;
+
+    &.active,
+    &:hover {
+      background: #7159c1;
+      color: #fff;
+    }
+  }
+`;
+
+export const PageActions = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    margin: 0 10px;
+    font-size: 0.8rem;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: #fff;
+    color: #7159c1;
+
+    &[disabled] {
+      opacity: 0.5;
+      cursor: default;
     }
   }
 `;

@@ -31,6 +31,7 @@ module.exports = {
       'warn',
       { extensions:['.jsx','.js'] }
     ],
+    "no-param-reassign": [2, {"props": false}],
     'import/prefer-default-export': 'off',
     'react/state-in-constructor': [2, 'never']
   },
