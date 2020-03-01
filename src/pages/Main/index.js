@@ -43,7 +43,10 @@ export default class Main extends Component {
       const { newRepo, respositories } = this.state;
 
       if (newRepo === '') {
-        throw new Error('Precisa indicar um repositório');
+        throw {
+          name: 'Warning',
+          message: 'Precisa indicar um repositório',
+        };
       }
 
       const duplicate = respositories.find(
@@ -51,7 +54,10 @@ export default class Main extends Component {
       );
 
       if (duplicate) {
-        throw new Error('Repositório Duplicado');
+        throw {
+          name: 'Warning',
+          message: 'Repositório Duplicado',
+        };
       }
 
       const response = await api.get(`/repos/${newRepo}`);
@@ -66,7 +72,11 @@ export default class Main extends Component {
         loading: false,
       });
     } catch (e) {
-      this.setState({ error: true, messageError: `Erro: ${e.message}` });
+      const message =
+        e.name !== 'Warning'
+          ? 'A solicitação a api do github falhou'
+          : e.message;
+      this.setState({ error: true, messageError: `Erro: ${message}` });
     } finally {
       this.setState({ loading: false });
     }
