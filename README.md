@@ -18,8 +18,22 @@ A aplicação consome dados da a API oficial do Github para buscar repositórios
   <img src="https://user-images.githubusercontent.com/2512512/75547401-8cb37c80-5a09-11ea-8888-c0e8f7f2474e.png" width="745px" />
 </h1>
 
+
 <h1 align="center">
   <img src="https://user-images.githubusercontent.com/2512512/75504817-43870c80-59b8-11ea-8d99-e89b9e3b9585.png" width="745px" />
+</h1>
+
+## Desafio Proposto
+Veja o desafio de forma mais detalhada: <a href='https://github.com/williammoreschi/bootcamp-gostack-desafio-05' target='_blank' >bootcamp-gostack-desafio-05</a>
+
+De forma resumida o desafio era:
+1. Adicionar um `try/catch` na função que busca os dados, caso der algum erro deixe o campo input com um borda vermelha;
+2. Bloquear o cadastro de repositório duplicado;
+3. Criar um filtro para as **issues** `(all,open,closed)` dentro da página do repositório;
+4. Criar um paginaçao para as **issues**;
+
+<h1 align="center">
+  <img src="https://user-images.githubusercontent.com/2512512/75630487-f5495780-5bc9-11ea-9e06-48038679d943.gif" width="745px" />
 </h1>
 
 ### Instruções
