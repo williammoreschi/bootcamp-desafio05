@@ -3,12 +3,12 @@ import styled, { keyframes, css } from 'styled-components';
 export const Form = styled.form`
   margin-top: 15px;
   display: flex;
-  flex-direction:column;
+  flex-direction: column;
 
-  .group{
-    display:flex;
-    flex:1;
-    
+  .group {
+    display: flex;
+    flex: 1;
+
     input {
       flex: 1;
       border: 1px solid #eee;
@@ -16,21 +16,18 @@ export const Form = styled.form`
       border-radius: 5px;
       font-size: 1.2rem;
 
-      &.error{
+      &.error {
         border-color: #ff6e6e;
       }
-
     }
-  
   }
-  
-  span.error{
+
+  span.error {
     font-size: 0.8em;
     font-weight: bold;
     margin-top: 2px;
-    color: #F44336;
+    color: #f44336;
   }
-
 `;
 
 const rotate = keyframes`
